@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+
 *,
 *::before,
 *::after {
@@ -9,6 +11,7 @@
 html {
   /* Default browser font size is 16px. This gives you 10px baseline*/
   font-size: 62.5%;
+  font-family: "Karla", sans-serif;
 }
 
 body {
@@ -16,4 +19,9 @@ body {
   overflow-x: hidden;
   background-color: #e0f1e8;
   height: 100vh;
+  padding: 128px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

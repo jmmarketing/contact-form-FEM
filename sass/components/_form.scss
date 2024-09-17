@@ -1,4 +1,48 @@
 .form {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex-shrink: 0;
+
+  max-width: 736px;
+  width: 100%;
+  padding: 40px;
+
+  background: white;
+  border-radius: 16px;
+
+  &__heading {
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 100%;
+  }
+
+  &__submit-btn {
+    display: flex;
+    padding: 16px 40px;
+    align-self: stretch;
+    justify-content: center;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 150%;
+    color: white;
+
+    background: #0c7d69;
+    border-radius: 8px;
+    border: none;
+
+    cursor: pointer;
+
+    &:hover {
+      background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.5) 0%,
+          rgba(0, 0, 0, 0.5) 100%
+        ),
+        #0c7d69;
+    }
+  }
 }
