@@ -17,3 +17,17 @@ body {
   background-color: #e0f1e8;
   height: 100vh;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}/*# sourceMappingURL=main.css.map */
