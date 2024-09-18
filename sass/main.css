@@ -26,6 +26,12 @@ body {
   position: relative;
 }
 
+.show {
+  opacity: 1 !important;
+  height: unset !important;
+  transition: all 0.5s;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -159,6 +165,8 @@ body {
   padding: 24px;
   position: absolute;
   top: 24px;
+  opacity: 0;
+  height: 0;
 }
 .success-message__icon {
   vertical-align: middle;
