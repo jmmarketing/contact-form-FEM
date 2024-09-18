@@ -54,14 +54,30 @@
             <label for="first_name" class="form__label"
               >First Name <span class="form__label--required">*</span></label
             >
-            <input type="text" name="first_name" class="form__input" required />
+            <input
+              type="text"
+              name="first_name"
+              class="form__input"
+              pattern="[A-Za-z]{1,}"
+              title="This field is required"
+              required
+            />
+            <span class="form__error-message">This field is required</span>
           </div>
 
           <div class="form__input-name">
             <label for="last_name" class="form__label"
               >Last Name <span class="form__label--required">*</span></label
             >
-            <input type="text" name="last_name" class="form__input" required />
+            <input
+              type="text"
+              name="last_name"
+              class="form__input"
+              pattern="[A-Za-z]{1,}"
+              title="This field is required"
+              required
+            />
+            <span class="form__error-message">This field is required</span>
           </div>
         </div>
 
@@ -69,7 +85,16 @@
           <label for="email" class="form__label"
             >Email Address <span class="form__label--required">*</span></label
           >
-          <input type="email" name="email" class="form__input" required />
+          <input
+            type="email"
+            name="email"
+            class="form__input"
+            title="Please enter a valid email address"
+            required
+          />
+          <span class="form__error-message"
+            >Please enter a valid email address</span
+          >
         </div>
 
         <div class="form__input-group--half">
@@ -108,6 +133,7 @@
             >Message <span class="form__label--required">*</span></label
           >
           <textarea name="message" id="" class="form__text-area"></textarea>
+          <span class="form__error-message">This field is required</span>
         </div>
       </div>
 
@@ -116,6 +142,9 @@
         <label for="consent" class="form__label--consent"
           >I consent to being contacted by the team
           <span class="form__label--required">*</span></label
+        >
+        <span class="form__error-message"
+          >To submit this form, please consent to being contacted</span
         >
       </div>
 

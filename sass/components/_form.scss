@@ -43,6 +43,7 @@
     }
 
     &--consent {
+      padding-left: 16px;
     }
   }
 
@@ -75,9 +76,14 @@
   }
 
   &__consent {
-    width: 20px;
+    width: 24px;
     opacity: 0.5;
     color: $color-grey-500;
+
+    &:checked {
+      accent-color: $color-green-600;
+      opacity: 1;
+    }
   }
 
   &__submit-btn {
@@ -105,6 +111,12 @@
         ),
         $color-green-600;
     }
+  }
+
+  &__error-message {
+    color: $color-red;
+    font-size: 1.6rem;
+    display: none;
   }
 }
 
@@ -180,10 +192,10 @@
   }
 
   &-consent {
-    display: flex;
+    // display: flex;
     padding: 40px 0;
     font-size: 1.6rem;
     line-height: 150%;
-    gap: 16px;
+    // gap: 16px;
   }
 }

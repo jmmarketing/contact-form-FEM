@@ -37,6 +37,10 @@ textarea {
   transition: all 0.5s;
 }
 
+.invalid {
+  border: 1px solid hsl(0, 66%, 54%);
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -74,6 +78,9 @@ textarea {
   line-height: 150%;
   cursor: pointer;
 }
+.form__label--consent {
+  padding-left: 16px;
+}
 .form__radio-btn {
   width: 22px;
   opacity: 0.5;
@@ -96,9 +103,13 @@ textarea {
   outline: hsl(169, 82%, 27%);
 }
 .form__consent {
-  width: 20px;
+  width: 24px;
   opacity: 0.5;
   color: hsl(186, 15%, 59%);
+}
+.form__consent:checked {
+  accent-color: hsl(169, 82%, 27%);
+  opacity: 1;
 }
 .form__submit-btn {
   display: flex;
@@ -116,6 +127,11 @@ textarea {
 }
 .form__submit-btn:hover {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), hsl(169, 82%, 27%);
+}
+.form__error-message {
+  color: hsl(0, 66%, 54%);
+  font-size: 1.6rem;
+  display: none;
 }
 
 .form__input {
@@ -176,11 +192,9 @@ textarea {
   transition: background 0.3s;
 }
 .form__input-consent {
-  display: flex;
   padding: 40px 0;
   font-size: 1.6rem;
   line-height: 150%;
-  gap: 16px;
 }
 
 .attribution {

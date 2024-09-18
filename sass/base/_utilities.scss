@@ -4,3 +4,7 @@
 
   transition: all 0.5s;
 }
+
+.invalid {
+  border: 1px solid $color-red;
+}
