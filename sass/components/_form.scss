@@ -5,8 +5,7 @@
   //   gap: 40px;
   flex-shrink: 0;
 
-  max-width: 736px;
-  width: 100%;
+  width: clamp(343px, 90vw, 736px);
   padding: 40px;
 
   background: white;

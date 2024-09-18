@@ -1,0 +1,32 @@
+.success-message {
+  color: $color-white;
+  width: clamp(327px, 90vw, 450px);
+
+  background: $color-grey-900;
+  border-radius: 12px;
+
+  padding: 24px;
+
+  //   position: absolute;
+  //   top: 24px;
+
+  &__icon {
+    // display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__title {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding-left: 8px;
+    vertical-align: middle;
+  }
+
+  &__subtitle {
+    padding-top: 8px;
+    font-size: 1.6rem;
+    font-weight: 200;
+    // line-height: 150%;
+  }
+}
