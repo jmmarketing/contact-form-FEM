@@ -21,63 +21,70 @@
     <form class="form" method="POST">
       <h3 class="form__heading">Contact Us</h3>
 
-      <div class="form__input-group--half">
-        <div class="form__input-name">
-          <label for="first_name" class="form__label"
-            >First Name <span class="form__label--required">*</span></label
-          >
-          <input type="text" name="first_name" class="form__input" required />
-        </div>
+      <div class="form__fields">
+        <div class="form__input-group--half">
+          <div class="form__input-name">
+            <label for="first_name" class="form__label"
+              >First Name <span class="form__label--required">*</span></label
+            >
+            <input type="text" name="first_name" class="form__input" required />
+          </div>
 
-        <div class="form__input-name">
-          <label for="last_name" class="form__label"
-            >Last Name <span class="form__label--required">*</span></label
-          >
-          <input type="text" name="last_name" class="form__input" required />
-        </div>
-      </div>
-
-      <div class="form__input-group">
-        <label for="email" class="form__label"
-          >Email Address <span class="form__label--required">*</span></label
-        >
-        <input type="email" name="email" class="form__input" required />
-      </div>
-
-      <div class="form__input-group--half">
-        <div class="form__input-group">
-          <input
-            type="radio"
-            name="general_enquiry"
-            id=""
-            class="form__radio"
-          />
-          <label for="general_enquiry" class="form__label--radio"
-            >General Enquiry</label
-          >
+          <div class="form__input-name">
+            <label for="last_name" class="form__label"
+              >Last Name <span class="form__label--required">*</span></label
+            >
+            <input type="text" name="last_name" class="form__input" required />
+          </div>
         </div>
 
         <div class="form__input-group">
-          <input
-            type="radio"
-            name="support_request"
-            id=""
-            class="form__radio"
-          />
-          <label for="support_request" class="form__label--radio"
-            >Support Request</label
+          <label for="email" class="form__label"
+            >Email Address <span class="form__label--required">*</span></label
           >
+          <input type="email" name="email" class="form__input" required />
+        </div>
+
+        <div class="form__input-group--half">
+          <p class="form__label">
+            Query Type <span class="form__label--required">*</span>
+          </p>
+          <div class="form__input-radio">
+            <input
+              type="radio"
+              name="enquiry"
+              id="general-enquiry"
+              value="General Enquiry"
+              class="form__radio-btn"
+            />
+            <label for="general_enquiry" class="form__label--radio"
+              >General Enquiry</label
+            >
+          </div>
+
+          <div class="form__input-radio">
+            <input
+              type="radio"
+              name="enquiry"
+              id="support-request"
+              value="Support Request"
+              class="form__radio-btn"
+            />
+            <label for="support_request" class="form__label--radio"
+              >Support Request</label
+            >
+          </div>
+        </div>
+
+        <div class="form__input-group">
+          <label for="message" class="form__label"
+            >Message <span class="form__label--required">*</span></label
+          >
+          <textarea name="message" id="" class="form__text-area"></textarea>
         </div>
       </div>
 
-      <div class="form__input-group">
-        <label for="message" class="form__label"
-          >Message <span class="form__label--required">*</span></label
-        >
-        <textarea name="message" id="" class="form__text-area"></textarea>
-      </div>
-
-      <div class="form__input-group">
+      <div class="form__input-consent">
         <input type="checkbox" name="consent" id="" class="form__consent" />
         <label for="consent" class="form__label--consent"
           >I consent to being contacted by the team
