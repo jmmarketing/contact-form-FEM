@@ -39,6 +39,7 @@
     &--radio {
       font-size: 1.8rem;
       line-height: 150%;
+      cursor: pointer;
     }
 
     &--consent {
@@ -48,6 +49,11 @@
   &__radio-btn {
     width: 22px;
     opacity: 0.5;
+
+    &:checked {
+      accent-color: $color-green-600;
+      opacity: 1;
+    }
   }
 
   &__text-area {
@@ -160,6 +166,17 @@
 
     flex: 1 1 48%;
     min-width: 225px;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid $color-green-600;
+      color: $color-green-600;
+    }
+
+    &:has(> input:checked) {
+      background: $color-green-200;
+      transition: background 0.3s;
+    }
   }
 
   &-consent {
