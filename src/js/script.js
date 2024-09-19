@@ -22,5 +22,11 @@ const successMessage = document.querySelector(".success-message");
 submitButton.addEventListener("click", function (e) {
   e.preventDefault();
 
-  successMessage.classList.toggle("show");
+  successMessage.classList.remove("hide");
+  successMessage.classList.add("show");
+
+  setTimeout(() => {
+    successMessage.classList.remove("show");
+    successMessage.classList.add("hide");
+  }, 3000);
 });

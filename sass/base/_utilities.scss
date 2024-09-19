@@ -1,9 +1,10 @@
-.show {
-  opacity: 1 !important;
-  height: unset !important;
+// .show {
+//   opacity: 1 !important;
+//   //   height: unset !important;
+//   transform: translateY(0px) !important;
 
-  transition: all 0.5s;
-}
+//   transition: all 0.5s;
+// }
 
 .invalid {
   border: 1px solid $color-red;
