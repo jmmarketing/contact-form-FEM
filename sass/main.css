@@ -52,7 +52,7 @@ textarea {
   }
 }
 .invalid {
-  border: 1px solid hsl(0, 66%, 54%);
+  border: 1px solid hsl(0, 66%, 54%) !important;
 }
 
 .form {
@@ -94,6 +94,7 @@ textarea {
 }
 .form__label--consent {
   padding-left: 16px;
+  vertical-align: middle;
 }
 .form__radio-btn {
   width: 22px;
@@ -116,14 +117,22 @@ textarea {
   border: 1px solid hsl(169, 82%, 27%);
   outline: hsl(169, 82%, 27%);
 }
+.form__text-area.invalid + .form__error-message {
+  display: block;
+}
 .form__consent {
   width: 24px;
+  height: 24px;
   opacity: 0.5;
   color: hsl(186, 15%, 59%);
+  vertical-align: middle;
 }
 .form__consent:checked {
   accent-color: hsl(169, 82%, 27%);
   opacity: 1;
+}
+.form__consent.invalid ~ .form__error-message {
+  display: block;
 }
 .form__submit-btn {
   display: flex;
@@ -169,6 +178,9 @@ textarea {
 .form__input-group:focus-within {
   color: hsl(169, 82%, 27%);
 }
+.form__input-group:has(input.invalid) .form__error-message {
+  display: block;
+}
 .form__input-group--half {
   display: flex;
   flex-wrap: wrap;
@@ -187,6 +199,9 @@ textarea {
 .form__input-name:focus-within {
   color: hsl(169, 82%, 27%);
 }
+.form__input-name:has(input.invalid) .form__error-message {
+  display: block;
+}
 .form__input-radio {
   display: flex;
   padding: 12px 24px;
@@ -204,6 +219,9 @@ textarea {
 .form__input-radio:has(> input:checked) {
   background: hsl(148, 38%, 91%);
   transition: background 0.3s;
+}
+.form__input-radio:has(input.invalid) ~ .form__error-message {
+  display: block;
 }
 .form__input-consent {
   padding: 40px 0;

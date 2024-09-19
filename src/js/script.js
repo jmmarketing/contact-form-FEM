@@ -22,6 +22,11 @@ const successMessage = document.querySelector(".success-message");
 submitButton.addEventListener("click", function (e) {
   e.preventDefault();
 
+  triggerSuccess();
+});
+
+// Function triggered when success submit.
+function triggerSuccess() {
   successMessage.classList.remove("hide");
   successMessage.classList.add("show");
 
@@ -29,4 +34,4 @@ submitButton.addEventListener("click", function (e) {
     successMessage.classList.remove("show");
     successMessage.classList.add("hide");
   }, 3000);
-});
+}
