@@ -1,5 +1,3 @@
-"use strict";
-
 /* Psuedo Code
 - On submit, need to get input values
 - Basic validation on inputs (text (min character) / email (include @ and .))
@@ -13,25 +11,42 @@
 */
 // Define all our Elements we are going to use
 
-const form = document.querySelector("form");
-const submitButton = document.querySelector(".form__submit-btn");
+class SubmitForm {
+  _data = {
+    first_name: false,
+    last_name: false,
+    email: false,
+    enquiry: false,
+    consent: false,
+  };
+  _form = document.querySelector("form").elements;
+  _submitButton = document.querySelector(".form__submit-btn");
+  _successMessage = document.querySelector(".success-message");
 
-const successMessage = document.querySelector(".success-message");
+  constructor() {
+    console.log(this._form);
+    // console.log(data);
+    this.init();
+  }
 
-// Test Submit Button & Showing Success Message
-submitButton.addEventListener("click", function (e) {
-  e.preventDefault();
+  init() {
+    // Test Submit Button & Showing Success Message
+    this._submitButton.addEventListener(
+      "click",
+      this._triggerSuccess.bind(this)
+    );
+  }
 
-  triggerSuccess();
-});
+  _triggerSuccess(e) {
+    e.preventDefault();
+    this._successMessage.classList.remove("hide");
+    this._successMessage.classList.add("show");
 
-// Function triggered when success submit.
-function triggerSuccess() {
-  successMessage.classList.remove("hide");
-  successMessage.classList.add("show");
-
-  setTimeout(() => {
-    successMessage.classList.remove("show");
-    successMessage.classList.add("hide");
-  }, 3000);
+    setTimeout(() => {
+      this._successMessage.classList.remove("show");
+      this._successMessage.classList.add("hide");
+    }, 3000);
+  }
 }
+
+const app = new SubmitForm();
