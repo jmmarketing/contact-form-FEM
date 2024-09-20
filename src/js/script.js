@@ -11,12 +11,15 @@
 */
 // Define all our Elements we are going to use
 
+import { VALIDATE } from "./helpers.js";
+
 class SubmitForm {
   _data = {
     first_name: false,
     last_name: false,
     email: false,
     enquiry: false,
+    message: false,
     consent: false,
   };
   _form = document.querySelector("form").elements;
@@ -24,17 +27,54 @@ class SubmitForm {
   _successMessage = document.querySelector(".success-message");
 
   constructor() {
-    console.log(this._form);
+    // console.log(this._form);
     // console.log(data);
     this.init();
   }
 
   init() {
     // Test Submit Button & Showing Success Message
+
+    // this._submitButton.addEventListener(
+    //   "click",
+    //   this._triggerSuccess.bind(this)
+    // );
+
     this._submitButton.addEventListener(
       "click",
-      this._triggerSuccess.bind(this)
+      this._validateInputs.bind(this)
     );
+
+    //More testing
+    // this._addEventHandlersToInputs();
+  }
+
+  _validateInputs(e) {
+    e.preventDefault();
+    [
+      this._form.first_name,
+      this._form.last_name,
+      this._form.email,
+      this._form.message,
+      this._form["general-enquiry"],
+      this._form["support-request"],
+      this._form.consent,
+    ].forEach((input) => {
+      console.dir(input);
+
+      /* Check input type, if text, if email, if radio, checkbox, etc.. 
+        - have validation to pass to (helper.js or built in)
+        - if true, update _data field with _data[input.name] & remove '.invalid'
+        - else add .invalid to classList
+       
+        - Loop through _data. If all true return true , else false. 
+
+        Will use as conditional to trigger success message. 
+
+        Need a reset function too. 
+
+      */
+    });
   }
 
   _triggerSuccess(e) {
