@@ -28,8 +28,11 @@ body {
   flex-direction: column;
 
   position: relative;
-}
 
+  @include respond(phone) {
+    padding: 32px 16px;
+  }
+}
 input,
 textarea {
   cursor: pointer;

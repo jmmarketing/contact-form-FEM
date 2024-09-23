@@ -104,6 +104,10 @@ class SubmitForm {
       input.type.includes("checkbox") && (input.checked = false);
       input.type.includes("radio") && (input.checked = false);
     }
+
+    for (const key of Object.keys(this._data)) {
+      this._data[key] = false;
+    }
   }
 }
 

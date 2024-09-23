@@ -25,6 +25,11 @@ body {
   flex-direction: column;
   position: relative;
 }
+@media only screen and (max-width: 37.5em) {
+  body {
+    padding: 32px 16px;
+  }
+}
 
 input,
 textarea {
@@ -97,7 +102,6 @@ textarea {
   cursor: pointer;
 }
 .form__label--consent {
-  padding-left: 16px;
   vertical-align: middle;
 }
 .form__radio-btn {
@@ -113,7 +117,7 @@ textarea {
   border-radius: 8px;
   border: 1px solid hsl(186, 15%, 59%);
   width: 100%;
-  height: 105px;
+  height: 132px;
   padding: 10px;
   resize: vertical;
 }
@@ -124,9 +128,14 @@ textarea {
 .form__text-area.invalid + .form__error-message {
   display: block;
 }
+@media only screen and (max-width: 37.5em) {
+  .form__text-area {
+    height: 240px;
+  }
+}
 .form__consent {
-  width: 24px;
-  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
   opacity: 0.5;
   color: hsl(186, 15%, 59%);
   vertical-align: middle;
@@ -228,9 +237,12 @@ textarea {
   display: block;
 }
 .form__input-consent {
+  display: flex;
   padding: 40px 0;
   font-size: 1.6rem;
   line-height: 150%;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
 }
 
 .attribution {
