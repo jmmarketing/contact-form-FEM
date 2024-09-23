@@ -25,6 +25,15 @@ class SubmitForm {
   _form = document.querySelector("form").elements;
   _submitButton = document.querySelector(".form__submit-btn");
   _successMessage = document.querySelector(".success-message");
+  _formInputs = [
+    this._form.first_name,
+    this._form.last_name,
+    this._form.email,
+    this._form.message,
+    this._form["general-enquiry"],
+    this._form["support-request"],
+    this._form.consent,
+  ];
 
   constructor() {
     // console.log(this._form);
@@ -33,17 +42,21 @@ class SubmitForm {
   }
 
   init() {
-    // Test Submit Button & Showing Success Message
+    // TEST Submit Button & Showing Success Message
 
     // this._submitButton.addEventListener(
     //   "click",
     //   this._triggerSuccess.bind(this)
     // );
 
-    this._submitButton.addEventListener(
-      "click",
-      this._validateInputs.bind(this)
-    );
+    // TEST Showing Erros on Submit
+    // this._submitButton.addEventListener(
+    //   "click",
+    //   this._validateInputs.bind(this)
+    // );
+
+    // TEST Clearing Form on Submit
+    this._submitButton.addEventListener("click", this._clearnInputs.bind(this));
 
     //More testing
     // this._addEventHandlersToInputs();
@@ -51,17 +64,9 @@ class SubmitForm {
 
   _validateInputs(e) {
     e.preventDefault();
-    [
-      this._form.first_name,
-      this._form.last_name,
-      this._form.email,
-      this._form.message,
-      this._form["general-enquiry"],
-      this._form["support-request"],
-      this._form.consent,
-    ].forEach((input) => {
+    this._formInputs.forEach((input) => {
       input.classList.toggle("invalid");
-      console.dir(input);
+      //   console.dir(input);
 
       /* Check input type, if text, if email, if radio, checkbox, etc.. 
         - have validation to pass to (helper.js or built in)
@@ -87,6 +92,16 @@ class SubmitForm {
       this._successMessage.classList.remove("show");
       this._successMessage.classList.add("hide");
     }, 3000);
+  }
+
+  _clearnInputs(e) {
+    e.preventDefault();
+    for (const input of this._formInputs) {
+      input.type.includes("text") && (input.value = "");
+      input.type.includes("email") && (input.value = "");
+      input.type.includes("checkbox") && (input.checked = false);
+      input.type.includes("radio") && (input.checked = false);
+    }
   }
 }
 
