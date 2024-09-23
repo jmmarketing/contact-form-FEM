@@ -103,6 +103,7 @@ textarea {
 }
 .form__label--consent {
   vertical-align: middle;
+  cursor: pointer;
 }
 .form__radio-btn {
   width: 22px;
@@ -238,6 +239,7 @@ textarea {
 }
 .form__input-consent {
   display: flex;
+  flex-wrap: wrap;
   padding: 40px 0;
   font-size: 1.6rem;
   line-height: 150%;
