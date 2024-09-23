@@ -1,16 +1,3 @@
-/* Psuedo Code
-- On submit, need to get input values
-- Basic validation on inputs (text (min character) / email (include @ and .))
-- If all inputs valid (state object?) -> Toggle success message, & clear inputs. 
-
-- If input invalid --> Show error message(s). 
-
-
-
-
-*/
-// Define all our Elements we are going to use
-
 import { VALIDATE } from "./helpers.js";
 
 class SubmitForm {
@@ -36,34 +23,19 @@ class SubmitForm {
   ];
 
   constructor() {
-    // console.log(this._form);
-    // console.log(data);
     this.init();
   }
 
   init() {
-    // TEST Submit Button & Showing Success Message
-
-    // this._submitButton.addEventListener(
-    //   "click",
-    //   this._triggerSuccess.bind(this)
-    // );
-
-    // TEST Showing Erros on Submit
     this._submitButton.addEventListener(
       "click",
       this._validateInputs.bind(this)
     );
-
-    // TEST Clearing Form on Submit
-    // this._submitButton.addEventListener("click", this._clearInputs.bind(this));
-
-    //More testing
-    // this._addEventHandlersToInputs();
   }
 
   _validateInputs(e) {
     e.preventDefault();
+    console.log("------NEW REQUEST -------");
     for (const input of this._formInputs) {
       //   input.classList.toggle("invalid");
       //   console.dir(input);
@@ -85,33 +57,37 @@ class SubmitForm {
       const inputType = input.type;
       const buttonInput = inputType == "radio" || inputType == "checkbox";
       const inputValue = buttonInput ? input.checked : input.value;
-      let isValid;
-
-      //   const valid = this._data.hasOwnProperty(inputName);
-      //   const valid = VALIDATE[input.type](inputValue);
-
-      //   console.dir(inputType, buttonInput);
-      console.dir(input);
-
-      if (buttonInput) {
-        isValid = input.checked;
-      }
-
-      if (!buttonInput) {
-        isValid =
-          this._data.hasOwnProperty(inputName) &&
+      const isValid = buttonInput
+        ? input.checked
+        : this._data.hasOwnProperty(inputName) &&
           VALIDATE[`${inputType || inputName}`](inputValue);
+
+      //   console.log(inputName, inputType, buttonInput, inputValue, isValid);
+
+      if (!isValid && !this._data[inputName]) {
+        // console.log("TRIGGERED BY --> " + input.id);
+        input.classList.add("invalid");
       }
 
-      console.log(`Button Input? ${buttonInput}`);
-      console.log(
-        `Input name = ${inputName} | Input value = ${inputValue} | Valid? ${isValid} `
-      );
+      if (isValid) {
+        this._data[inputName] = isValid;
+        input.classList.remove("invalid");
+
+        if (inputType == "radio") {
+          document
+            .querySelectorAll('input[type="radio"]')
+            .forEach((input) => input.classList.remove("invalid"));
+        }
+      }
+    }
+
+    if (Object.values(this._data).every((val) => val == true)) {
+      this._triggerSuccess();
+      this._clearInputs();
     }
   }
 
-  _triggerSuccess(e) {
-    e.preventDefault();
+  _triggerSuccess() {
     this._successMessage.classList.remove("hide");
     this._successMessage.classList.add("show");
 
@@ -121,8 +97,7 @@ class SubmitForm {
     }, 3000);
   }
 
-  _clearInputs(e) {
-    e.preventDefault();
+  _clearInputs() {
     for (const input of this._formInputs) {
       input.type.includes("text") && (input.value = "");
       input.type.includes("email") && (input.value = "");
