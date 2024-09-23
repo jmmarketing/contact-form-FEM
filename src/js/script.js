@@ -30,8 +30,8 @@ class SubmitForm {
     this._form.last_name,
     this._form.email,
     this._form.message,
-    this._form["general-enquiry"],
-    this._form["support-request"],
+    this._form["general_enquiry"],
+    this._form["support_request"],
     this._form.consent,
   ];
 
@@ -50,13 +50,13 @@ class SubmitForm {
     // );
 
     // TEST Showing Erros on Submit
-    // this._submitButton.addEventListener(
-    //   "click",
-    //   this._validateInputs.bind(this)
-    // );
+    this._submitButton.addEventListener(
+      "click",
+      this._validateInputs.bind(this)
+    );
 
     // TEST Clearing Form on Submit
-    this._submitButton.addEventListener("click", this._clearnInputs.bind(this));
+    // this._submitButton.addEventListener("click", this._clearInputs.bind(this));
 
     //More testing
     // this._addEventHandlersToInputs();
@@ -64,8 +64,8 @@ class SubmitForm {
 
   _validateInputs(e) {
     e.preventDefault();
-    this._formInputs.forEach((input) => {
-      input.classList.toggle("invalid");
+    for (const input of this._formInputs) {
+      //   input.classList.toggle("invalid");
       //   console.dir(input);
 
       /* Check input type, if text, if email, if radio, checkbox, etc.. 
@@ -80,7 +80,34 @@ class SubmitForm {
         Need a reset function too. 
 
       */
-    });
+
+      const inputName = input.name;
+      const inputType = input.type;
+      const buttonInput = inputType == "radio" || inputType == "checkbox";
+      const inputValue = buttonInput ? input.checked : input.value;
+      let isValid;
+
+      //   const valid = this._data.hasOwnProperty(inputName);
+      //   const valid = VALIDATE[input.type](inputValue);
+
+      //   console.dir(inputType, buttonInput);
+      console.dir(input);
+
+      if (buttonInput) {
+        isValid = input.checked;
+      }
+
+      if (!buttonInput) {
+        isValid =
+          this._data.hasOwnProperty(inputName) &&
+          VALIDATE[`${inputType || inputName}`](inputValue);
+      }
+
+      console.log(`Button Input? ${buttonInput}`);
+      console.log(
+        `Input name = ${inputName} | Input value = ${inputValue} | Valid? ${isValid} `
+      );
+    }
   }
 
   _triggerSuccess(e) {
@@ -94,7 +121,7 @@ class SubmitForm {
     }, 3000);
   }
 
-  _clearnInputs(e) {
+  _clearInputs(e) {
     e.preventDefault();
     for (const input of this._formInputs) {
       input.type.includes("text") && (input.value = "");
