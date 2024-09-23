@@ -60,6 +60,7 @@ class SubmitForm {
       this._form["support-request"],
       this._form.consent,
     ].forEach((input) => {
+      input.classList.toggle("invalid");
       console.dir(input);
 
       /* Check input type, if text, if email, if radio, checkbox, etc.. 
